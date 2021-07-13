@@ -1,0 +1,4 @@
+pandas
+nltk==3.4.5
+sklearn
+streamlit
