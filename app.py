@@ -1,3 +1,4 @@
+from PIL import Image
 import streamlit as st
 import nltk
 import re
@@ -48,12 +49,11 @@ if st.button("Predict"):
     st.write(f'PREDICTED OUTPUT: {y_out}')
 
     if (y_out == "Positive"):
-        st.write("\U0001f600")
+      
+        image = Image.open("happy.jpeg")
+        st.image(image,width=250)
     else:
-        st.write("😞")
+        image = Image.open("sad.jpeg")
+        st.image(image,width=250)
     
-    CATEGORIES = ['Negative', 'Positive']
-    q = model.predict_proba(text)
-    for index, item in enumerate(CATEGORIES):
-          st.write(f'{item} : {q[0][index]*100}%')
-    
+   
